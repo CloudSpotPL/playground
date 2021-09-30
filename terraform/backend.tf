@@ -1,9 +1,8 @@
 terraform {
-  backend "remote" {
-    organization = "CloudSpotPL"
-    workspaces {
-      name = "playground"
-    }
+  backend "azurerm" {
+    resource_group_name  = "tf"
+    storage_account_name = "tfstate01"
+    container_name       = "tfstate"
+    key                  = "playground"
   }
-  required_version = ">= 0.13.0"
 }
